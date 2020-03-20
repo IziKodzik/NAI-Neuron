@@ -101,9 +101,9 @@ public class Main {
 
 		Scanner scanner = new Scanner(System.in);
 
-		for(String line = scanner.nextLine() ; !line.toLowerCase().equals("end"); line = scanner.nextLine()){
+		List<Double> props = new ArrayList<>();
 
-			Flower flower = Flower.parseFlower(line);
+		for(String line = scanner.nextLine() ; !line.toLowerCase().equals("end"); line = scanner.nextLine()){
 
 
 

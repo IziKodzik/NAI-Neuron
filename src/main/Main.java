@@ -1,14 +1,15 @@
 package main;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-
 		if(args.length != 3){
 			System.out.println("Wrong arguments amount.");
 			System.exit(-2);
@@ -92,22 +93,28 @@ public class Main {
 			if(flower.getNameCode() == result)
 				guessed++;
 
-			System.out.println(Flower.nameByCode(flower.getNameCode()) +
+			System.out.println("It is " + Flower.nameByCode(flower.getNameCode()) +
 					" and i gueesed " + Flower.nameByCode(result));
 
 		}
 
-		System.out.println("My accuracy is equal to " + (double)guessed/testList.size());
+		System.out.println(Flower.nameByCode(neuron.testObject(trainList.get(0).getInputs())));
 
-		Scanner scanner = new Scanner(System.in);
+		System.out.println("My accuracy is " + (double)guessed/testList.size());
 
-		List<Double> props = new ArrayList<>();
+		List<Double> properties = new ArrayList<>();
+		properties.add(6.3);
+		properties.add(3.3);
+		properties.add(6.1);
+		properties.add(2.3);
 
-		for(String line = scanner.nextLine() ; !line.toLowerCase().equals("end"); line = scanner.nextLine()){
 
+		Flower f = new Flower(properties);
+		f.setNameCode(neuron.testObject(f.getInputs()));
+		System.out.println(Flower.nameByCode(f.getNameCode()));
 
+		SwingUtilities.invokeLater( () -> new GUI(4,neuron));
 
-		}
 
 
 	}

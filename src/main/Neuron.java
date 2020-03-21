@@ -20,7 +20,7 @@ public
 	public boolean testObject(List<Double> inputs){
 
 		double net = 0;
-		for(int op = 0 ; op < Math.max(inputs.size(),weights.size()) ; ++ op )
+		for(int op = 0 ; op < Math.min(inputs.size(),weights.size()) ; ++ op )
 			net += inputs.get(op) * this.weights.get(op);
 
 		return net > theta;
@@ -31,7 +31,7 @@ public
 
 		List<Double> weights = new ArrayList<>();
 
-		for(int op = 0 ; op < this.weights.size(); ++ op){
+		for(int op = 0 ; op < Math.min(this.weights.size(),inputs.size()); ++ op){
 
 			if(expected){
 				weights.add(this.weights.get(op) + alpha*inputs.get(op));

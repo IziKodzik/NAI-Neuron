@@ -10,6 +10,10 @@ public class Flower
 	private List<Double> properties;
 	private Boolean nameCode;
 
+	public void setNameCode(Boolean nameCode) {
+		this.nameCode = nameCode;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -50,6 +54,7 @@ public class Flower
 		this.nameCode = null;
 
 	}
+
 
 	public static Flower parseFlower(String line){
 

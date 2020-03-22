@@ -38,7 +38,7 @@ public
 				theta += alpha*-1;
 			}else{
 				weights.add(this.weights.get(op) - alpha*inputs.get(op));
-				theta -= alpha;
+				theta += alpha;
 			}
 		}
 
